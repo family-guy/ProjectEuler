@@ -44,7 +44,7 @@ long int unsigned largestPrimeFactor(long int unsigned n, int i) // i = 2 is alw
 // print solution
 int main()
 {
-	long int unsigned n(600851475143); // n is too large here
+	long int unsigned n(600851475143); 
 	cout << largestPrimeFactor(n, 2) << endl;
 	return 0;
 }
