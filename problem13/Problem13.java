@@ -1,3 +1,6 @@
+/* We simply use the algorithm addition learnt at primary school where we start from the right and sum each column, 
+generating a "carry over" integer each time. */
+
 import java.util.*;
 import java.io.*;
 
