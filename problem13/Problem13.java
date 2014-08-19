@@ -23,10 +23,10 @@ public class Problem13
 		try
 		{
 			String str = "";
-			for(i = 0; i < 100; i++)
+			for (i = 0; i < 100; i++)
 			{
 				str = file.read();
-				for(j = 0; j < 50; j++)
+				for (j = 0; j < 50; j++)
 				{
 					nbsToSum[i][j] = Character.digit(str.charAt(j), 10);
 				}
@@ -58,7 +58,7 @@ public class Problem13
 		}
 		sumCol += carryOver;
 		list.add(sumCol);
-		// get the number of digits in the value of the last element of list
+		// get the number of digits of the last element of the list
 		int lastElt = list.get(list.size() - 1);
 		int nbDigitsLastElt = 1;
 		while (true)
@@ -95,7 +95,7 @@ public class Problem13
 			int difference = 10 - nbDigitsLastElt;
 			// print solution
 			System.out.print("The solution is " + lastElt);
-			for(i = 0; i < difference; i++)
+			for (i = 0; i < difference; i++)
 			{
 				System.out.print(list.get(list.size() - 1 - 1 - i));
 			}
