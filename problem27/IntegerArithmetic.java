@@ -34,7 +34,7 @@ public class IntegerArithmetic {
 		return true;
 	}
 	
-	public static int sumOfPropDiv(int n) { // function d(n) ie returns sum of proper divisors of n
+	public static int sumOfPropDiv(int n) {
 		int sum = 0;
 		for (int i = 2; i * i <= n; i++) {
 			if (n % i == 0) {
