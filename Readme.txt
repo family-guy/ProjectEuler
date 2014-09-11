@@ -1,1 +1,1 @@
-Project Euler
+Project Euler. A full list of the problems can be found on the website https://projecteuler.net
