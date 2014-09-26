@@ -11,5 +11,5 @@ int main() {
 			sum += currentTerm;
 		}
 	}
-	std::cout << "The solution is " << sum << std::endl;
+	std::cout << "The solution is " << sum << std::endl;	
 }

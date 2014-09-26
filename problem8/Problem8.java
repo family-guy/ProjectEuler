@@ -74,9 +74,6 @@ public class Problem8
   		catch(IOException e)
   		{
   			throw new RuntimeException("Failed to read file", e);
-  		}
-  			
-  		
-  		
+  		} 		
 	}
 }

@@ -28,3 +28,5 @@ int nbOfWays(int t, int c[], int n) {
 	}
 	return sum;
 }
+
+

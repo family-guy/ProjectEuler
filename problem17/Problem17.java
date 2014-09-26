@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Problem17
-{
+{	
 	public static void main(String[] arg)
 	{
 		int[] T = new int[20]; // T[i] is the number of characters in i, for i in 1 to 19 (we will not make use of the first element in the array)
@@ -62,6 +62,6 @@ public class Problem17
 		}
 		// the case of 1000
 		sum += T[1] + U[9];
-		System.out.println("The solution is " + sum);		
+		System.out.println("The solution is " + sum);
 	}
 }

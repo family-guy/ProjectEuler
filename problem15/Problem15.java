@@ -20,5 +20,7 @@ public class Problem15
 			product = (product * (n + 1)) / (n + 1 - k);
 		}
 		System.out.println("The solution is " + product);
+		String A = "three hundred and forty-two";
+		System.out.println(A.length());
 	}
 }

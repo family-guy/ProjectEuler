@@ -1,6 +1,9 @@
 #include <iostream>
+/* Problem 2
+ * fib: returns the n-th term of Fibonacci's sequence
+*/
 
-int fib(int n); // returns the n-th term of Fibonacci's suite
+int fib(int n);
 
 int main() {
 	int sum = 0;

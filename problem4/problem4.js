@@ -13,8 +13,7 @@ function reverseString (str) {
 
 function isPalindrome(n) {
 	var numAsStr = n.toString();
-	if (numAsStr == reverseString(numAsStr)) return true;
-	return false;
+	return numAsStr == reverseString(numAsStr);
 }
 
 var maxValue, maxIndex1, maxIndex2; maxValue = 0; maxIndex1 = 0; maxIndex2 = 0;

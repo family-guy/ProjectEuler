@@ -7,6 +7,12 @@ for (var i = 0; i < 10; i++) {
 	map[i.toString()] = i;
 }
 
+var sum = 0;
+for (var i = 2; i < 1000000; i++) {
+	if (sumOfPowersOfDigits(i, 5) == i) sum += i;
+}
+console.log("The solution is " + sum);
+
 function sumOfPowersOfDigits(n, exp) {
 	var sum = 0; 
 	var nAsStr = n.toString();
@@ -15,12 +21,6 @@ function sumOfPowersOfDigits(n, exp) {
 	}
 	return sum;
 }
-
-var sum = 0;
-for (var i = 2; i < 1000000; i++) {
-	if (sumOfPowersOfDigits(i, 5) == i) sum += i;
-}
-console.log("The solution is " + sum);
 
 
 

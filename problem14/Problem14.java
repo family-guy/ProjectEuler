@@ -48,11 +48,6 @@ public class Problem14
 
 			// we update arrayOfPastValues
 			arrayOfPastValues[i] = nbOfTermsCollatzWithMemory(i, arrayOfPastValues);
-
-
-
-
-
 		}
 		// find the starting number that yields the longest sequence
 		int max = 0; int maxIndex = 0;
@@ -65,9 +60,6 @@ public class Problem14
 			}
 		}
 		// print the solution
-		System.out.print("The starting number, under one million, that produces the longest chain (" + max + " terms) is " + maxIndex);
-				
-	
-	
+		System.out.print("The starting number, under one million, that produces the longest chain (" + max + " terms) is " + maxIndex);	
 	}
 }
