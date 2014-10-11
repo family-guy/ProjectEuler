@@ -42,8 +42,8 @@ public class Problem36 {
 				if (product > n) break;
 				exp++;
 			}
-			BigInteger dummy = new BigInteger("10"); 
-			sum = sum.add(dummy.pow(exp));
+			BigInteger big = new BigInteger("10"); 
+			sum = sum.add(big.pow(exp));
 			if (product / 2 == n) break;
 			n -= product / 2; product = 1; exp = 0;
 		}
