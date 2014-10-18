@@ -12,7 +12,7 @@ public class Problem47 {
 		System.out.println("The solution is " + getSmallestNb(4, primes));
 	}
 	
-	public static ArrayList<Integer> primeFacts(int n, boolean[] P) {
+	public static ArrayList<Integer> primeFacts(int n, boolean[] P) { // this could be replaced with a function that returns the number of distinct prime factors. The array is not necessary but was used to ascertain that the correct prime factors were being generated
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		int i = 0;
 		while (true) {
