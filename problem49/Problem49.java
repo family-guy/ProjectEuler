@@ -1,4 +1,7 @@
 import java.util.*;
+/* Problem 49
+ * isPerm: takes two positive integers and returns whether they are permutations of each other 
+*/
 
 public class Problem49 {
 	public static void main(String[] arg) {
