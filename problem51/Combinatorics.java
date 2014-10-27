@@ -3,6 +3,7 @@ import java.util.*;
  * This class contains combinatorics methods for strings and integers
  * fact: returns the factorial of a non-negative integer
  * nChooseK: returns the value of C^k_n
+ * isPerm: takes two positive integers and returns whether they are permutations of each other 
  * permutationsOfAString: returns all permutations of a string
  * showStrings: prints an array of strings
 */
@@ -59,6 +60,20 @@ public class Combinatorics {
 			denominator *= i;
 		}
 		return numerator / denominator;
+	}
+	
+	public static boolean isPerm(int a, int b) {
+		String aAsStr = Integer.toString(a); String bAsStr = Integer.toString(b);
+		if (aAsStr.length() != bAsStr.length()) return false;
+		int[] A = new int[10]; int[] B = new int[10];
+		for (int i = 0; i < aAsStr.length(); i++) {
+			A[Integer.parseInt(aAsStr.substring(i, i + 1))]++;
+			B[Integer.parseInt(bAsStr.substring(i, i + 1))]++;
+		}
+		for (int i = 0; i < A.length; i++) {
+			if (A[i] != B[i]) return false;
+		}
+		return true;
 	}
 	
 	public static String[] permutationsOfAString(String str) {

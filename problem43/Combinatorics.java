@@ -2,14 +2,16 @@ import java.util.*;
 /*
  * This class contains combinatorics methods for strings and integers
  * fact: returns the factorial of a non-negative integer
+ * nChooseK: returns the value of C^k_n
+ * isPerm: takes two positive integers and returns whether they are permutations of each other 
  * permutationsOfAString: returns all permutations of a string
  * showStrings: prints an array of strings
 */
 
-// private methods
-// insertCharAt: takes a string and inserts a character (string of length 1) at the given index
-// removeCharAt: takes a string and removes the character at the given index
-// allNewStrings: takes a string (or an array of strings) and a character and returns all new strings that can be made by adding that character
+/* private methods
+   insertCharAt: takes a string and inserts a character (string of length 1) at the given index
+   removeCharAt: takes a string and removes the character at the given index
+   allNewStrings: takes a string (or an array of strings) and a character and returns all new strings that can be made by adding that character */
 
 public class Combinatorics {
 	private static String insertCharAt(String str, String ch, int i) {		
@@ -47,6 +49,31 @@ public class Combinatorics {
 			result *= i;
 		}
 		return result;
+	}
+	
+	public static int nChooseK(int k, int n) {
+		if (k == 0) return 1;
+		int numerator = 1;
+		int denominator = 1;
+		for (int i = 1; i < k + 1; i++) {
+			numerator *= n - (k - i);
+			denominator *= i;
+		}
+		return numerator / denominator;
+	}
+	
+	public static boolean isPerm(int a, int b) {
+		String aAsStr = Integer.toString(a); String bAsStr = Integer.toString(b);
+		if (aAsStr.length() != bAsStr.length()) return false;
+		int[] A = new int[10]; int[] B = new int[10];
+		for (int i = 0; i < aAsStr.length(); i++) {
+			A[Integer.parseInt(aAsStr.substring(i, i + 1))]++;
+			B[Integer.parseInt(bAsStr.substring(i, i + 1))]++;
+		}
+		for (int i = 0; i < A.length; i++) {
+			if (A[i] != B[i]) return false;
+		}
+		return true;
 	}
 	
 	public static String[] permutationsOfAString(String str) {
