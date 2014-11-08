@@ -1,1 +1,1 @@
-Contains some useful functions that were used to solve some of the problems
+Contains some useful functions used to solve some of the problems
