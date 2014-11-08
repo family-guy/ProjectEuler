@@ -6,13 +6,13 @@ import java.util.*;
 public class Problem50 {
 	public static void main(String[] arg) {
 		int n = 1000000;
-		boolean[] isPrime = IntegerArithmetic.sieveEratosthenes(n);
+		boolean[] isPrime = IntegerArithmetic.sieveEratosthenes(n); 
 		// get the number of primes under n
 		int count = 0;
 		for (int i = 0; i < isPrime.length; i++) {
 			if (isPrime[i]) count++;
 		}
-		int[] primes = new int[count]; int j = 0;
+		int[] primes = new int[count]; int j = 0; 
 		// fill in primes
 		for (int i = 0; i < isPrime.length; i++) {
 			if (isPrime[i]) {

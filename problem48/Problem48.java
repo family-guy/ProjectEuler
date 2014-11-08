@@ -10,6 +10,10 @@ public class Problem48 {
 		int n = 1000; int[] result = new int[10];
 		for (int i = 1; i <= n; i++) {
 			result = add(result, power(i, i));
+			for (int j = 0; j < 10; j++) {
+				System.out.print(result[j] + " ");
+			}
+			System.out.println();
 		}
 		String str = "";
 		for (int i = 0; i < result.length; i++) {

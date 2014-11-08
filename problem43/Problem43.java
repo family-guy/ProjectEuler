@@ -1,5 +1,5 @@
 import java.util.*;
-/* Problem 42
+/* Problem 43
  * hasProp: takes a 0 to 9 pandigital number and returns whether it has the property given in the question
 */
 
@@ -10,6 +10,7 @@ public class Problem43 {
 		for (int i = 0; i < permutations.length; i++) {
 			if (hasProp(permutations[i])) {
 				long n = Long.parseLong(permutations[i]);
+				System.out.println(n);
 				sum += n;
 			}
 		}

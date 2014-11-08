@@ -1,6 +1,6 @@
 import java.util.*;
 /* Problem 45
- * isIn: returns whether a given integer is a given array where the array is sorted
+ * isIn: returns whether a given integer is in a given array where the array is sorted
 */
 
 public class Problem45 {
