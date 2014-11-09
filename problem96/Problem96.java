@@ -119,7 +119,7 @@ public class Problem96 {
 	}
 	
 	public static int[][] constraintProp(int[][] g) { // this function can be optimised as many potential constaint propagations are being ignored
-		int[][] result = new int[g.length][g[0].length];
+		int[][] result = new int[g.length][g[0].length]; 
 		for (int i = 0; i < g.length; i++) {
 			for (int j = 0; j < g[0].length; j++) {
 				result[i][j] = g[i][j];
