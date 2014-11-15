@@ -133,7 +133,10 @@ class Combinatorics // no public/private/protected keyword required
 			$result[1] = substr($str, 1) . substr($str, 0, 1);
 			return $result;
 		}
-		return self::all_new_strings2(self::permutations_of_a_string(self::remove_char_at($str, strlen($str) - 1)), substr($str, strlen($str) - 1));
+		return self::all_new_strings2(
+									 self::permutations_of_a_string(self::remove_char_at($str, strlen($str) - 1)), 
+									 substr($str, strlen($str) - 1)
+								 	 );
 	}	
 }
 ?>
