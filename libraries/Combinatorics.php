@@ -134,9 +134,9 @@ class Combinatorics // no public/private/protected keyword required
 			return $result;
 		}
 		return self::all_new_strings2(
-									 self::permutations_of_a_string(self::remove_char_at($str, strlen($str) - 1)), 
-									 substr($str, strlen($str) - 1)
-								 	 );
+										self::permutations_of_a_string(self::remove_char_at($str, strlen($str) - 1)), 
+									 	substr($str, strlen($str) - 1)
+									);
 	}	
 }
 ?>
