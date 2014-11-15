@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains combinatorics methods for strings and integers
+ * Combinatorics methods for strings and integers
  */
 
 class Combinatorics // no public/private/protected keyword required
