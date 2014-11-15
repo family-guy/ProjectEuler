@@ -102,7 +102,7 @@ class Combinatorics // no public/private/protected keyword required
 	*/
 	public static function is_perm($a, $b)
 	{
-		$aAsStr = (string)($a);
+		$aAsStr = strval($a);
 		$bAsStr = strval($b);
 		if (strlen($aAsStr) !== strlen($bAsStr)) return false;
 		$A = array();
