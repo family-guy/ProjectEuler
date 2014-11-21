@@ -50,13 +50,12 @@ function fact(n) {
 
 function nChooseK(k, n) {
 	if (k === 0) return 1;
-	var numerator = 1;
-	var denominator = 1;
+	var result = 1;
 	for (var i = 1; i < k + 1; i++) {
-		numerator *= n - (k - i);
-		denominator *= i;
+		result *= n - (k - i);
+		result = Math.floor(result / i);
 	}
-	return numerator / denominator;
+	return result;
 }
 
 function isPerm(a, b) {
@@ -128,16 +127,15 @@ exports.fact = function(n) {
 	}
 	return result;
 }
-	
+
 exports.nChooseK = function(k, n) {
 	if (k === 0) return 1;
-	var numerator = 1;
-	var denominator = 1;
+	var result = 1;
 	for (var i = 1; i < k + 1; i++) {
-		numerator *= n - (k - i);
-		denominator *= i;
+		result *= n - (k - i);
+		result = Math.floor(result / i);
 	}
-	return numerator / denominator;
+	return result;
 }
 
 exports.isPerm = function(a, b) {
