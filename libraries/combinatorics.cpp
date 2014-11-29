@@ -44,13 +44,12 @@ int fact(int n) {
 
 int nChooseK(int k, int n) {
 	if (k == 0) return 1;
-	int numerator = 1;
-	int denominator = 1;
+	int result = 1;
 	for (int i = 1; i < k + 1; i++) {
-		numerator *= n - (k - i);
-		denominator *= i;
+		result *= n - (k - i);
+		result /= i;
 	}
-	return numerator / denominator;
+	return result;
 }
 
 bool isPerm(int a, int b) {
