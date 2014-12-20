@@ -23,11 +23,21 @@ exports.sieveEratosthenes = function(n) {
 }
 
 exports.isPrime = function(n) {
-	if (n <= 1) return false;
+	/*if (n <= 1) return false;
+	else if (n == 2 || n == 3 || n == 5 || n == 7 || n == 11 || n == 13 || n == 17 || n == 19) return true;
+	else if (n % 2 == 0 || n % 3 == 0 || n % 5 == 0 || n % 7 == 0 || n % 11 == 0 || n % 13 == 0 || n % 17 == 0 || n % 19 == 0) return false;
 	else {
 		for (var i = 2; i * i <= n; i++) {
 			if (n % i == 0) return false;
 		}
+	}
+	return true;*/
+	
+	if (n < 2) return false;
+	if (n == 2 || n == 3) return true;
+	if ((n - 1) % 6 != 0 && (n + 1) % 6 != 0) return false;
+	for (var i = 2; i * i <= n; i++) {
+		if (n % i == 0) return false;
 	}
 	return true;
 }

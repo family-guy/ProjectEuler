@@ -4,7 +4,9 @@
  * Problem 57
  */
 
-// Takes two integers a and b, where a >= b, represented by strings, and returns a string representing their sum.
+/**
+* Takes two integers a and b, where a >= b, represented by strings, and returns a string representing their sum
+*/
 std::string add(std::string a, std::string b);
 
 int main() {
