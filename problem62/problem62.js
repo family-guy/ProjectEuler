@@ -2,7 +2,6 @@
  * Problem 62
  */
 
-var figurates = [];
 var n = 2000000;
 var cubes = [];
 for (var i = 0; i < n; i++) {
