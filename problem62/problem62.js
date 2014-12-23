@@ -25,11 +25,10 @@ for (var i = 0; i < cubes.length; i++) {
 				freqCubeI[parseInt(cubeIAsStr.substring(k, k + 1))]++;
 				freqCubeJ[parseInt(cubeJAsStr.substring(k, k + 1))]++;
 			}
-			var l = 0;
-			for (l = 0; l < freqCubeI.length; l++) {
+			for (var l = 0; l < freqCubeI.length; l++) {
 				if (freqCubeI[l] != freqCubeJ[l]) break;
+				if (l == freqCubeI.length - 1) nbPermsCubeI++;
 			}
-			if (l == freqCubeI.length) nbPermsCubeI++;
 		}
 	}
 	if (nbPermsCubeI == 5) {

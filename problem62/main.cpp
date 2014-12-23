@@ -26,11 +26,10 @@ int main() {
 					freqCubeI[atoi(cubeIAsStr.substr(k, 1).c_str())]++;
 					freqCubeJ[atoi(cubeJAsStr.substr(k, 1).c_str())]++;
 				}
-				int l = 0;
-				for (l = 0; l < 10; l++) {
+				for (int l = 0; l < 10; l++) {
 					if (freqCubeI[l] != freqCubeJ[l]) break;
+					if (l == 9) nbPermsCubeI++;
 				}
-				if (l == 10) nbPermsCubeI++;
 			}
 		}
 		if (nbPermsCubeI == 5) {

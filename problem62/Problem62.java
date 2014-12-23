@@ -26,11 +26,10 @@ public class Problem62 {
 						freqCubeI[Integer.parseInt(cubeIAsStr.substring(k, k + 1))]++;
 						freqCubeJ[Integer.parseInt(cubeJAsStr.substring(k, k + 1))]++;
 					}
-					int l = 0;
-					for (l = 0; l < freqCubeI.length; l++) {
+					for (int l = 0; l < freqCubeI.length; l++) {
 						if (freqCubeI[l] != freqCubeJ[l]) break;
+						if (l == freqCubeI.length - 1) nbPermsCubeI++;
 					}
-					if (l == freqCubeI.length) nbPermsCubeI++;
 				}
 			}
 			if (nbPermsCubeI == 5) {
