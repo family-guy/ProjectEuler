@@ -41,6 +41,7 @@ solve(unorderedSet, states, figurates, nbFigurates);
 * @param array of booleans states
 * @param two dimensional array of integers T
 * @param integer nbFigurates
+* @return boolean
 */
 function solve(unorderedSet, states, T, nbFigurates) {
 	if (unorderedSet.length == nbFigurates) {

@@ -28,6 +28,7 @@ console.log('The solution is ' + minSum);
 * Takes a set of prime pair sets of cardinality n and returns a set of prime pair sets of cardinality n + 1
 * @param 2D array of integers currentSets
 * @param array of integers primes 
+* @return 2D array of integers
 */
 function setsOfPrimes(currentSets, primes) {
 	var result = [];
@@ -54,6 +55,7 @@ function setsOfPrimes(currentSets, primes) {
 * Takes a set of primes and a prime p and returns whether each pair that includes p is a prime pair
 * @param array of integers primeSet
 * @param integer p
+* @return boolean
 */
 function hasPrimeSetProp(primeSet, p) {
 	for (var i = 0; i < primeSet.length; i++) {
@@ -66,6 +68,7 @@ function hasPrimeSetProp(primeSet, p) {
 * Returns whether a pair of primes is a prime pair
 * @param integer a
 * @param integer b
+* @return boolean
 */
 function isPrimePair(a, b) {
 	var aAsStr = a.toString();
@@ -76,6 +79,7 @@ function isPrimePair(a, b) {
 /**
 * Takes a set of primes and returns all the prime pairs that can be made from it
 * @param array of integers primes
+* @return 2D array of integers
 */
 function primePairs(primes) {
 	result = [];
@@ -94,6 +98,7 @@ function primePairs(primes) {
 /**
 * Returns the sum of the elements of a dynamic array
 * @param array of integers T
+* @return integer
 */
 function sumElts(T) {
 	var sum = 0;
