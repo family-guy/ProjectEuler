@@ -1,4 +1,4 @@
-/*
+/**
  * Problem 66
  * See http://en.wikipedia.org/wiki/Pell%27s_equation#Concise_representation_and_faster_algorithms, section 3 'Example'
  */
@@ -16,7 +16,7 @@ for (var i = 0; i <= 1000; i++) {
 }
 console.log('The solution is: D equals ' + currentMaxIndex + ' for which the value of x is ' + currentMax);
 
-/*
+/**
 * Returns whether a positive integer is a square
 * @param integer n
 * @return boolean
@@ -26,7 +26,7 @@ function isSquare(n) {
 	return a * a == n;
 }
 
-/*
+/**
 * Takes two non-negative integers a and b represented as strings and returns whether a is greater than b
 * @param string a
 * @param string b
@@ -45,7 +45,7 @@ function greaterThan(a, b) {
 	return true;
 }
 
-/*
+/**
 * Returns the minimal solution in x for a given D
 * @param integer D
 * @return string
@@ -60,7 +60,7 @@ function minSolInX (D) {
 	}
 }
 
-/*
+/**
 * Takes an integer and returns the k-th term in the sequence of partial values of its infinite continued fraction
 * @param integer k
 * @param integer n
@@ -89,7 +89,7 @@ function kthTermInfContFrac(k, n) {
 	return result;
 }
 
-/*
+/**
 * Takes an array of integers and returns an array of length k by repeating the values in the array given e.g. repeatBlock([1, 1, 5], 7) returns [1, 1, 5, 1, 1, 5, 1]
 * @param array of integers block
 * @param integer k
@@ -148,7 +148,7 @@ function add(a, b) {
 * @return string
 */
 function multAux(a, b) {
-	if (b == 0) return "0";
+	if (a == '0' || b == 0) return '0';
 	var result = '';
 	var carryOver = 0; var p = 0;
 	for (var i = 0; i < a.length - 1; i++) {
@@ -190,7 +190,7 @@ function mult(a, b) {
 	return sum;
 }
 
-/*
+/**
 * Takes a non-square positive integer and returns its infinite contiuned fraction e.g. infContFrac(23) returns [[4], [1, 3, 1, 8]]
 * @param integer n
 * @return two dimensional array of integers
@@ -215,7 +215,7 @@ function infContFrac(n) {
 	return result;
 }
 
-/*
+/**
 * Takes a triple (a, b, c) representing a fraction of the form a / (sqrt(b) + c) and returns the next fraction (of the same form) in the sequence
 * @param array of integers T
 * @return array of integers
@@ -230,7 +230,7 @@ function nextTerm(T) {
 	return result;
 }
 
-/*
+/**
 * Returns if two arrays of integers are equal
 * @param array of integers T
 * @param array of integers U

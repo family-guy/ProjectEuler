@@ -1,5 +1,5 @@
 import java.util.*;
-/*
+/**
  * Problem 66
  * See http://en.wikipedia.org/wiki/Pell%27s_equation#Concise_representation_and_faster_algorithms, section 3 'Example'
  */
@@ -20,7 +20,7 @@ public class Problem66 {
 		System.out.println("The solution is: D equals " + currentMaxIndex + " for which the value of x is " + currentMax);
 	}
 	
-	/*
+	/**
 	* Returns whether a positive integer is a square
 	*/
 	public static boolean isSquare(int n) {
@@ -28,7 +28,7 @@ public class Problem66 {
 		return a * a == n;
 	}
 	
-	/*
+	/**
 	* Takes two non-negative integers a and b represented as strings and returns whether a is greater than b
 	*/
 	public static boolean greaterThan(String a, String b) {
@@ -44,7 +44,7 @@ public class Problem66 {
 		return true;
 	}
 	
-	/*
+	/**
 	* Returns the minimal solution in x for a given D
 	*/
 	public static String minSolInX (int D) {
@@ -57,7 +57,7 @@ public class Problem66 {
 		}
 	}
 	
-	/*
+	/**
 	* Takes an integer and returns the k-th term in the sequence of partial values of its infinite continued fraction
 	*/
 	public static String[] kthTermInfContFrac(int k, int n) {
@@ -83,7 +83,7 @@ public class Problem66 {
 		return result;
 	}
 	
-	/*
+	/**
 	* Takes an array of integers and returns an array of length k by repeating the values in the array given e.g. repeatBlock([1, 1, 5], 7) returns [1, 1, 5, 1, 1, 5, 1]
 	*/
 	public static String[] repeatBlock(ArrayList<Integer> block, int k) {
@@ -168,7 +168,7 @@ public class Problem66 {
 		return sum;
 	}
 	
-	/*
+	/**
 	* Takes a non-square positive integer and returns its infinite contiuned fraction e.g. infContFrac(23) returns [[4], [1, 3, 1, 8]]
 	*/
 	public static ArrayList<ArrayList<Integer>> infContFrac(int n) {
@@ -192,7 +192,7 @@ public class Problem66 {
 		return result;
 	}
 	
-	/*
+	/**
 	* Takes a triple (a, b, c) representing a fraction of the form a / (sqrt(b) + c) and returns the next fraction (of the same form) in the sequence
 	*/
 	public static int[] nextTerm(int[] T) {
@@ -205,7 +205,7 @@ public class Problem66 {
 		return result;
 	}
 	
-	/*
+	/**
 	* Returns if two arrays of integers are equal
 	*/
 	public static boolean equals(int[] T, int[] U) {

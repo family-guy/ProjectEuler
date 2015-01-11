@@ -2,32 +2,32 @@
 #include <string>
 #include <vector>
 #include <cmath>
-/*
+/**
  * Problem 66
  * See http://en.wikipedia.org/wiki/Pell%27s_equation#Concise_representation_and_faster_algorithms, section 3 'Example'
  */
 
-/*
+/**
 * Returns whether a positive integer is a square
 */
 bool isSquare(int n);
 
-/*
+/**
 * Takes two non-negative integers a and b represented as strings and returns whether a is greater than b
 */
 bool greaterThan(std::string a, std::string b);
 
-/*
+/**
 * Returns the minimal solution in x for a given D
 */
 std::string minSolInX (int D);
 
-/*
+/**
 * Takes an integer and returns the k-th term in the sequence of partial values of its infinite continued fraction
 */
 std::string * kthTermInfContFrac(int k, int n);
 
-/*
+/**
 * Takes an array of integers and returns an array of length k by repeating the values in the array given e.g. repeatBlock([1, 1, 5], 7) returns [1, 1, 5, 1, 1, 5, 1]
 */
 std::string * repeatBlock(std::vector<int> block, int k);
@@ -52,17 +52,17 @@ std::string multAux(std::string a, int b);
 */
 std::string mult(std::string a, std::string b);
 
-/*
+/**
 * Takes a non-square positive integer and returns its infinite contiuned fraction e.g. infContFrac(23) returns [[4], [1, 3, 1, 8]]
 */
 std::vector<std::vector<int> > infContFrac(int n);
 
-/*
+/**
 * Takes a triple (a, b, c) representing a fraction of the form a / (sqrt(b) + c) and returns the next fraction (of the same form) in the sequence
 */
 int * nextTerm(int T[]);
 
-/*
+/**
 * Returns if two arrays of integers are equal
 */
 bool equals(int T[], int t, int U[], int u);

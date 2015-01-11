@@ -62,6 +62,56 @@ class Combinatorics // no public/private/protected keyword required
 	}
 	
 	/**
+	* Suppose that we enumerate all k-combinations of a set S of n elements in lexicographic order e.g. if S = {1, 2, 3, 4, 5}, k = 3, then we have {1, 2, 3}, {1, 	2, 4}, {1, 2, 5}, {1, 3, 4}, {1, 3, 5}, {1, 4, 5}, {2, 3, 4}, {2, 3, 5}, {2, 4, 5}, {3, 4, 5}. Given one of these k-combinations, returns the next k-combination 	e.g. next({1, 4, 5}, 5) returns {2, 3, 4}
+	* @param array of integers $T, integer $n
+	* @return array of integers
+	*/
+	public static function next($T, $n)
+	{
+		$result = array();
+		for ($i = 0; $i < count($T); $i++)
+		{
+			$result[] = $T[$i];
+		}
+		$i = 0;
+		while (count($T) - 1 - $i > -1)
+		{
+			if ($T[count($T) - 1 - $i] < $n - $i)
+			{
+				$result[count($result) - 1 - $i]++;
+				for ($j = count($result) - $i; $j < count($T); $j++)
+				{
+					$result[$j] = $result[count($result) - 1 - $i] + 1 + ($j - (count($result) - $i));
+				}
+				break;
+			}
+			$i++;
+		}
+		return $result;
+	}
+	
+	/**
+	* Enumerates all k-combinations of a set containing n elements in lexicographic order e.g. enum_n_choose_k(3, 5) returns {1, 2, 3}, {1, 	2, 4}, {1, 2, 5}, 	{1, 3, 4}, {1, 3, 5}, {1, 4, 5}, {2, 3, 4}, {2, 3, 5}, {2, 4, 5}, {3, 4, 5}
+	* @param integer $k, integer $n
+	* @return two dimensional array of integers
+	*/
+	public static function enum_n_choose_k($k, $n) 
+	{
+		$result = array();
+		$first_enum = array();
+		for ($i = 1; $i < $k + 1; $i++)
+		{
+			$first_enum[] = $i;
+		}
+		$result[] = $first_enum;
+		for ($i = 0; $i < self::n_choose_k($k, $n) - 1; $i++)
+		{
+			$result[] = self::next($result[$i], $n);
+		}
+		return $result;
+	}
+	
+	/**
 	* Calculates the factorial of a number
 	* @param integer $n
 	* @return integer
