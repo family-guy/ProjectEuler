@@ -28,7 +28,6 @@ console.log('The solution is ' + max);
 * @param array of integers solution, two dimensional array of integers couples
 * @return two dimensional array of integers
 */
-
 function solutionSet(solution, couples) {
 	var result = []; 
 	for (var i = 0; i < solution.length; i++) {
@@ -158,7 +157,7 @@ function sieveCouples2(a, couples, T) {
 }
 
 /**
-* Deep copies of a dynamic array
+* Deep copies a dynamic array
 * @param array of integers T
 * @return array of integers 
 */

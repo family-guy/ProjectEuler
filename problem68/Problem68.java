@@ -143,7 +143,7 @@ public class Problem68 {
 	}
 	
 	/**
-	* Deep copies of a dynamic array 
+	* Deep copies a dynamic array 
 	*/
 	public static ArrayList<Integer> copy(ArrayList<Integer> T) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
