@@ -1,4 +1,7 @@
 import java.util.*;
+/**
+ * Problem 72
+ */
 
 public class Problem72 {
 	public static void main(String[] arg) {
