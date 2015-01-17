@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Problem74 {
 	public static Map<Integer, Integer> loops = new HashMap<Integer, Integer>();
+	
 	public static void main(String[] arg) {
 		loops.put(1, 0);
 		loops.put(2, 0);
