@@ -7,29 +7,30 @@ public class IntegerArithmetic {
 	/**
 	* Returns the prime decomposition of an integer (overloaded function)
 	*/
-	public static ArrayList<ArrayList<Integer>> primeDecomp(int n, boolean[] prime) {
+	public static ArrayList<ArrayList<Integer>> primeDecomp(int n, int[] primes) {
 		ArrayList<ArrayList<Integer>> solution = new ArrayList<ArrayList<Integer>>();
-		return primeDecomp(n, prime, solution);
+		return primeDecomp(n, primes, solution, 0);
 	}
 	
-	public static ArrayList<ArrayList<Integer>> primeDecomp(int n, boolean[] prime, ArrayList<ArrayList<Integer>> solution) {
-		if (n == 1) return solution;
+	public static ArrayList<ArrayList<Integer>> primeDecomp(int n, int[] primes, ArrayList<ArrayList<Integer>> solution, int lastIndex) {
 		ArrayList<Integer> primeFact = new ArrayList<Integer>();
-		for (int i = 0; i * i <= n; i++) {
-			if (prime[i] && n % i == 0) {
-				primeFact.add(i);
+		for (int i = lastIndex; i < primes.length; i++) {
+			int p = primes[i];
+			if (n % p == 0) {
+				primeFact.add(p);
 				int expPrimeFact = 1;
-				n /= i;
+				n /= p;
 				while (true) {
-					if (n % i == 0) {
+					if (n % p == 0) {
 						expPrimeFact++;
-						n /= i;
+						n /= p;
 					} 
 					else break;
 				}
 				primeFact.add(expPrimeFact);
 				solution.add(primeFact);
-				return primeDecomp(n, prime, solution);
+				if (n == 1) return solution;
+				return primeDecomp(n, primes, solution, i + 1);
 			}
 		}
 		primeFact.add(n);

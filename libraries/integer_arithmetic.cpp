@@ -1,5 +1,38 @@
-#include <stdlib.h>
+#include <iostream>
+#include <vector>
 #include "integer_arithmetic.h"
+
+std::vector<std::vector<int> > primeDecomp(int n, int primes[], int lengthOfPrimes) {
+	std::vector<std::vector<int> > solution;
+	return primeDecomp(n, primes, lengthOfPrimes, solution, 0);
+}
+
+std::vector<std::vector<int> > primeDecomp(int n, int primes[], int lengthOfPrimes, std::vector<std::vector<int> > &solution, int lastIndex) {
+	std::vector<int> primeFact;
+	for (int i = lastIndex; i < lengthOfPrimes; i++) {
+		int p = primes[i];
+		if (n % p == 0) {
+			primeFact.push_back(p);
+			int expPrimeFact = 1;
+			n /= p;
+			while (true) {
+				if (n % p == 0) {
+					expPrimeFact++;
+					n /= p;
+				} 
+				else break;
+			}
+			primeFact.push_back(expPrimeFact);
+			solution.push_back(primeFact);
+			if (n == 1) return solution;
+			return primeDecomp(n, primes, lengthOfPrimes, solution, i + 1);
+		}
+	}
+	primeFact.push_back(n);
+	primeFact.push_back(1);
+	solution.push_back(primeFact);
+	return solution;
+}
 
 bool* sieveEratosthenes(int n) {
 	bool *result = new bool[n + 1];

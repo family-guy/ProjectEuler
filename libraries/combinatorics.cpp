@@ -97,6 +97,9 @@ bool isPerm(int a, int b) {
 	std::string aAsStr = std::to_string(a); std::string bAsStr = std::to_string(b);
 	if (aAsStr.length() != bAsStr.length()) return false;
 	int *A = new int[10]; int *B = new int[10];
+	for (int i = 0; i < 10; i++) {
+		A[i] = 0; B[i] = 0;
+	}
 	for (int i = 0; i < aAsStr.length(); i++) {
 		A[atoi(aAsStr.substr(i, 1).c_str())]++;
 		B[atoi(bAsStr.substr(i, 1).c_str())]++;

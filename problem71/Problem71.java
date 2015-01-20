@@ -21,7 +21,7 @@ public class Problem71 {
 				}
 			}
 		}
-		System.out.println("The solution is " + currentBest[0] + "/" + currentBest[1]);
+		System.out.println("The fraction immediately to the left of 3/7 is " + currentBest[0] + "/" + currentBest[1] + ". The solution is " + currentBest[0]);
 	}
 	
 	/*
