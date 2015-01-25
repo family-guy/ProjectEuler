@@ -17,7 +17,6 @@ console.log("The solution is " + (prevVals[prevVals.length - 1] - 1));
 * @param array of integers prevValsOfPn
 * @return integer
 */
-
 function nextValOfPn(prevValsOfPn) {
 	var sumA = 0; var sumB = 0;
 	var n = prevValsOfPn.length;
@@ -38,7 +37,6 @@ function nextValOfPn(prevValsOfPn) {
 * @param integer k
 * @return integer
 */
-
 function functA(k) {
 	return k * (3 * k - 1) / 2;
 }
@@ -47,7 +45,6 @@ function functA(k) {
 * @param integer k
 * @return integer
 */
-
 function functB(k) {
 	return k * (3 * k + 1) / 2;
 }	
