@@ -86,9 +86,9 @@ public class IntegerArithmetic {
 	}
 	
 	/**
-	* Returns the greatest common divisor of a number
+	* Returns the greatest common divisor of two integers a and b where a is less than or equal to b
 	*/
-	public static int gcd(int a, int b) { // a <= b
+	public static int gcd(int a, int b) { 
 		if (b % a == 0) return a;
 		return gcd(b % a, a);
 	}	

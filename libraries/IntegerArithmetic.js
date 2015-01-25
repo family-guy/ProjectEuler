@@ -1,11 +1,73 @@
 /*
  * This module contains functions that perform simple integer arithmetic
- * sieveEratosthenes: can be used to determine whether a number is prime
- * isPrime: same as above
- * sumOfPropDiv: returns the sum of a number's proper divisors
- * gcd: returns the greatest common divisor of a number
-*/
+ */
 
+/**
+* Auxiliary function
+* @param integer n
+* @param primes array of integers
+* @param two dimensional array of integers solution
+* @param integer lastIndex
+* @return two dimensional array of integers
+*/
+var primeDecompAux = function(n, primes, solution, lastIndex) {
+	var primeFact = [];
+	for (var i = lastIndex; i < primes.length; i++) {
+		var p = primes[i];
+		if (n % p == 0) {
+			primeFact.push(p);
+			var expPrimeFact = 1;
+			n = Math.floor(n / p);
+			while (true) {
+				if (n % p == 0) {
+					expPrimeFact++;
+					n = Math.floor(n / p);
+				}
+				else break;
+			}
+			primeFact.push(expPrimeFact);
+			solution.push(primeFact);
+			if (n == 1) return solution;
+			return primeDecompAux(n, primes, solution, i + 1);
+		}
+	}
+	primeFact.push(n);
+	primeFact.push(1);
+	solution.push(primeFact);
+	return solution;
+};
+
+exports.primeDecompAux = primeDecompAux;
+
+/**
+* Returns the greatest common divisor of two integers a and b where a is less than or equal to b
+* @param integer a
+* @param integer b
+* @return integer
+*/	
+var gcd = function(a, b) {
+	if (b % a == 0) return a;
+	return gcd(b % a, a);
+};	
+
+exports.gcd = gcd;
+
+/**
+* Returns the prime decomposition of an integer
+* @param integer n
+* @param primes array of integers
+* @return two dimensional array of integers
+*/
+exports.primeDecomp = function(n, primes) {
+	var solution = [];
+	return primeDecompAux(n, primes, solution, 0);
+};
+
+/**
+* Can be used to determine whether a number is prime
+* @param integer n
+* @return array of booleans
+*/
 exports.sieveEratosthenes = function(n) {
 	result = [];
 	for (var i = 0; i < n + 1; i++) { // starting case is that all values are true
@@ -20,28 +82,28 @@ exports.sieveEratosthenes = function(n) {
 		} 
 	}
 	return result;
-}
+};
 
+/**
+* Can be used to determine whether a number is prime
+* @param integer n
+* @return boolean
+*/
 exports.isPrime = function(n) {
-	/*if (n <= 1) return false;
-	else if (n == 2 || n == 3 || n == 5 || n == 7 || n == 11 || n == 13 || n == 17 || n == 19) return true;
-	else if (n % 2 == 0 || n % 3 == 0 || n % 5 == 0 || n % 7 == 0 || n % 11 == 0 || n % 13 == 0 || n % 17 == 0 || n % 19 == 0) return false;
+	if (n <= 1) return false;
 	else {
 		for (var i = 2; i * i <= n; i++) {
 			if (n % i == 0) return false;
 		}
 	}
-	return true;*/
-	
-	if (n < 2) return false;
-	if (n == 2 || n == 3) return true;
-	if ((n - 1) % 6 != 0 && (n + 1) % 6 != 0) return false;
-	for (var i = 2; i * i <= n; i++) {
-		if (n % i == 0) return false;
-	}
 	return true;
-}
+};
 
+/**
+* Returns the sum of a number's proper divisors
+* @param integer n
+* @return integer
+*/
 exports.sumOfPropDiv = function(n) {
 	var sum = 0;
 	for (var i = 2; i * i <= n; i++) {
@@ -51,12 +113,7 @@ exports.sumOfPropDiv = function(n) {
 		}
 	}
 	return sum + 1;
-}
-	
-exports.gcd = function gcd(a, b) {
-	if (b % a == 0) return a;
-	return gcd(b % a, a);
-}
+};
 
 
 
