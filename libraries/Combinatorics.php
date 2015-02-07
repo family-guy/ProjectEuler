@@ -135,12 +135,22 @@ class Combinatorics // no public/private/protected keyword required
 	public static function n_choose_k($k, $n)
 	{
 		if ($k === 0) return 1;
-		$result = 1;
+		/*$result = 1;
 		for ($i = 1; $i < $k + 1; $i++) {
 			$result *= $n - ($k - $i);
 			$result = floor($result / $i);
+		}*/
+		$num = 1;
+		for ($i = 1; $i <= $k; $i++)
+		{
+			$num *= $n + 1 - $i;
 		}
-		return $result;
+		$den = 1;
+		for ($i = 1; $i <= $k; $i++)
+		{
+			$den *= $i;
+		}
+		return $num / $den;
 	}
 	
 	/**
