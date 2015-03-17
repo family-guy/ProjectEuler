@@ -3,15 +3,13 @@
  * Combinatorics methods for strings and integers
  */
 
-class Combinatorics // no public/private/protected keyword required
-{
+class Combinatorics { // no public/private/protected keyword required
 	/**
 	* Inserts a character into a string
 	* @param string $str, string $ch (of length 1), integer $i
 	* @return string
 	*/
-	private static function insert_char_at($str, $ch, $i)
-	{
+	private static function insert_char_at($str, $ch, $i) {
 		if ($i === 0) return $ch . $str;
 		if ($i === strlen($str)) return $str. $ch;
 		else return substr($str, 0, $i) . $ch . substr($str, $i);
@@ -22,8 +20,7 @@ class Combinatorics // no public/private/protected keyword required
 	* @param string $str, integer $i
 	* @return string
 	*/
-	private static function remove_char_at($str, $i)
-	{
+	private static function remove_char_at($str, $i) {
 		return substr($str, 0, $i) . substr($str, $i + 1);
 	}
 	
@@ -32,11 +29,9 @@ class Combinatorics // no public/private/protected keyword required
 	* @param string $str, string $ch (of length 1)
 	* @return array of strings
 	*/
-	private static function all_new_strings1($str, $ch) // PHP does not support overloaded functions
-	{
+	private static function all_new_strings1($str, $ch) {
 		$result = array();
-		for ($i = 0; $i < strlen($str) + 1; $i++)
-		{
+		for ($i = 0; $i < strlen($str) + 1; $i++) {
 			$result[] = self::insert_char_at($str, $ch, $i);
 		}
 		return $result;
@@ -47,14 +42,12 @@ class Combinatorics // no public/private/protected keyword required
 	* @param array of strings $strings, string $ch (of length 1)
 	* @return array of strings
 	*/
-	private static function all_new_strings2($strings, $ch)
-	{
+	private static function all_new_strings2($strings, $ch) {
 		$p = count($strings);
 		$q = strlen($strings[0]) + 1;
 		$result = array();
 		$j = -1;
-		for ($i = 0; $i < $p * $q; $i++)
-		{
+		for ($i = 0; $i < $p * $q; $i++) {
 			if ($i % $q === 0) $j++;
 			$result[] = self::all_new_strings1($strings[$j], $ch)[$i % $q]; 
 		}
@@ -66,21 +59,16 @@ class Combinatorics // no public/private/protected keyword required
 	* @param array of integers $T, integer $n
 	* @return array of integers
 	*/
-	public static function next($T, $n)
-	{
+	public static function next($T, $n) {
 		$result = array();
-		for ($i = 0; $i < count($T); $i++)
-		{
+		for ($i = 0; $i < count($T); $i++) {
 			$result[] = $T[$i];
 		}
 		$i = 0;
-		while (count($T) - 1 - $i > -1)
-		{
-			if ($T[count($T) - 1 - $i] < $n - $i)
-			{
+		while (count($T) - 1 - $i > -1) {
+			if ($T[count($T) - 1 - $i] < $n - $i) {
 				$result[count($result) - 1 - $i]++;
-				for ($j = count($result) - $i; $j < count($T); $j++)
-				{
+				for ($j = count($result) - $i; $j < count($T); $j++) {
 					$result[$j] = $result[count($result) - 1 - $i] + 1 + ($j - (count($result) - $i));
 				}
 				break;
@@ -95,17 +83,14 @@ class Combinatorics // no public/private/protected keyword required
 	* @param integer $k, integer $n
 	* @return two dimensional array of integers
 	*/
-	public static function enum_n_choose_k($k, $n) 
-	{
+	public static function enum_n_choose_k($k, $n) {
 		$result = array();
 		$first_enum = array();
-		for ($i = 1; $i < $k + 1; $i++)
-		{
+		for ($i = 1; $i < $k + 1; $i++) {
 			$first_enum[] = $i;
 		}
 		$result[] = $first_enum;
-		for ($i = 0; $i < self::n_choose_k($k, $n) - 1; $i++)
-		{
+		for ($i = 0; $i < self::n_choose_k($k, $n) - 1; $i++) {
 			$result[] = self::next($result[$i], $n);
 		}
 		return $result;
@@ -116,12 +101,10 @@ class Combinatorics // no public/private/protected keyword required
 	* @param integer $n
 	* @return integer
 	*/
-	public static function fact($n)
-	{
+	public static function fact($n) {
 		if ($n === 0) return 1;
 		$result = 1;
-		for ($i = 1; $i <= $n; $i++)
-		{
+		for ($i = 1; $i <= $n; $i++) {
 			$result *= $i;
 		}
 		return $result;
@@ -132,22 +115,14 @@ class Combinatorics // no public/private/protected keyword required
 	* @param integer $k, integer $n
 	* @return integer
 	*/
-	public static function n_choose_k($k, $n)
-	{
+	public static function n_choose_k($k, $n) {
 		if ($k === 0) return 1;
-		/*$result = 1;
-		for ($i = 1; $i < $k + 1; $i++) {
-			$result *= $n - ($k - $i);
-			$result = floor($result / $i);
-		}*/
 		$num = 1;
-		for ($i = 1; $i <= $k; $i++)
-		{
+		for ($i = 1; $i <= $k; $i++) {
 			$num *= $n + 1 - $i;
 		}
 		$den = 1;
-		for ($i = 1; $i <= $k; $i++)
-		{
+		for ($i = 1; $i <= $k; $i++) {
 			$den *= $i;
 		}
 		return $num / $den;
@@ -158,20 +133,17 @@ class Combinatorics // no public/private/protected keyword required
 	* @param integer $a, integer $b
 	* @return boolean
 	*/
-	public static function is_perm($a, $b)
-	{
+	public static function is_perm($a, $b) {
 		$aAsStr = strval($a);
 		$bAsStr = strval($b);
 		if (strlen($aAsStr) !== strlen($bAsStr)) return false;
 		$A = array();
 		$B = array();
-		for ($i = 0; $i < strlen($aAsStr); $i++)
-		{
+		for ($i = 0; $i < strlen($aAsStr); $i++) {
 			$A[intval(substr($aAsStr, $i, 1))]++;
 			$B[intval(substr($bAsStr, $i, 1))]++;
 		}
-		for ($i = 0; $i < 10; $i++)
-		{
+		for ($i = 0; $i < 10; $i++) {
 			if ($A[$i] !== $B[$i]) return false;
 		}
 		return true;
@@ -182,10 +154,8 @@ class Combinatorics // no public/private/protected keyword required
 	* @param string $str
 	* @return array of strings
 	*/
-	public static function permutations_of_a_string($str)
-	{
-		if (strlen($str) == 2) 
-		{
+	public static function permutations_of_a_string($str) {
+		if (strlen($str) == 2) {
 			$result = array();
 			$result[0] = $str;
 			$result[1] = substr($str, 1) . substr($str, 0, 1);
