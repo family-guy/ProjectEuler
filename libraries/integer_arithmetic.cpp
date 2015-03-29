@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include "integer_arithmetic.h"
 
 std::vector<std::vector<int> > primeDecomp(int n, int primes[], int lengthOfPrimes) {
@@ -74,4 +75,107 @@ int sumOfPropDiv(int n) {
 int gcd(int a, int b) {
 	if (b % a == 0) return a;
 	return gcd(b % a, a);
+}
+
+bool greaterThan(std::string a, std::string b) {
+	if (a.length() < b.length()) return false;
+	if (a.length() == b.length()) {
+		for (int i = 0; i < a.length(); i++) {
+			std::string aDigit = a.substr(i, 1);
+			std::string bDigit = b.substr(i, 1);
+			if (aDigit != bDigit) return atoi(aDigit.c_str()) > atoi(bDigit.c_str());
+		}
+		return false;
+	}
+	return true;
+}
+
+std::string sum(std::string a, std::string b) {
+	std::string result = "";
+	int difference = a.length() - b.length();
+	for (int i = 0; i < difference; i++) {
+		b = "0" + b;
+	}
+	int carryOver = 0;
+	for (int i = a.length() - 1; i > -1; i--) {
+		int x = atoi(a.substr(i, 1).c_str());
+		int y = atoi(b.substr(i, 1).c_str());
+		int value = (x + y + carryOver) % 10;
+		result = std::to_string(value) + result;
+		carryOver = (x + y + carryOver) / 10;
+	}
+	if (carryOver == 0) return result;
+	return std::to_string(carryOver) + result;
+}
+
+std::string difference(std::string a, std::string b) {
+	std::string result = "";
+	int *A = new int[a.length()];
+	int *B = new int[a.length()];
+	for (int i = 0; i < a.length(); i++) {
+		A[i] = atoi(a.substr(i, 1).c_str());
+	}
+	int diffLengths = a.length() - b.length();
+	for (int i = diffLengths; i < a.length(); i++) {
+		B[i] = atoi(b.substr(i - diffLengths, 1).c_str());
+	}
+	for (int i = a.length() - 1; i > -1; i--) {
+		if (A[i] < B[i]) {
+			int k = 1;
+			while (true) {
+				if (A[i - k] != 0) {
+					A[i - k]--;
+					break;
+				}
+				A[i - k] = 9;
+				k++;
+			}
+			result = std::to_string(A[i] + 10 - B[i]) + result;
+		}
+		else result = std::to_string(A[i] - B[i]) + result;
+	}
+	std::string resultWithoutLeadingZeros = "";
+	int j = 0;
+	for (j = 0; j < result.length() - 1; j++) {
+		if (result.substr(j, 1) != "0") break;
+	}
+	for (int l = j; l < result.length(); l++) {
+		resultWithoutLeadingZeros += result.substr(l, 1);
+	}
+	return resultWithoutLeadingZeros;
+}
+
+std::string * quotientRemainder(std::string a, std::string b) {
+	std::string *result = new std::string[2];
+	std::string quotient = "0";
+	while (true) {
+		if (greaterThan(b, a)) break;
+		a = difference(a, b);
+		quotient = sum(quotient, "1");
+	}
+	result[0] = quotient;
+	result[1] = a;
+	return result;
+}
+
+std::string digitProduct(int digit, std::string b) {
+	if (digit == 0) return "0";
+	if (digit == 1) return b;
+	return sum(digitProduct(digit - 1, b), b);
+}
+
+std::string product(std::string a, std::string b) {
+	std::string result = digitProduct(atoi(b.substr(0, 1).c_str()), a);
+	for (int i = 0; i < b.length() - 1; i++) {
+		result += "0";
+	}
+	for (int i = 1; i < b.length(); i++) {
+		std::string substr = b.substr(i, 1);
+		std::string str = digitProduct(atoi(substr.c_str()), a);
+		for (int j = i; j < b.length() - 1; j++) {
+			str += "0";
+		}
+		result = sum(result, str);
+	}
+	return result;
 }

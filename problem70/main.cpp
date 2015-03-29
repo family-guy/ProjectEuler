@@ -12,8 +12,6 @@
 */
 int phi(int n, int primes[], int lengthOfPrimes);
 
-void printVect(std::vector<std::vector<int> > T);
-
 int main() {
 	int upperBound = (int)sqrt(10000000);
 	bool *prime = sieveEratosthenes(upperBound);
@@ -30,8 +28,6 @@ int main() {
 		}
 	}
 	int index = 87109;
-	//std::cout << phi(index, primes);
-	//std::cout << isPerm(phi(index, primes), index);
 	float minRatio = (float)index / (float)phi(index, primes, nbPrimes);
 	for (int n = 2; n < 10000000; n++) {
 		int phiOfn = phi(n, primes, nbPrimes);
