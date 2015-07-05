@@ -19,9 +19,6 @@ public class Problem72 {
 				j++;
 			}
 		}	
-		/*int upperBound = 1000000;
-		int k = (int)Math.sqrt(upperBound);
-		boolean[] prime = IntegerArithmetic.sieveEratosthenes(k);*/
 		long sum = 0;
 		for (int d = 2; d <= 1000000; d++) {
 			sum += (long)phi(d, primes);

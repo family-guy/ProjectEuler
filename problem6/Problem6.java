@@ -1,32 +1,18 @@
 import java.util.*;
+/**
+ * Problem 6
+ */
 
-public class Problem6
-{
-	public static int sumOfSquares(int n)
-	{
-		int i;
+public class Problem6 {
+	public static void main(String[] arg) {
+		int n = 100;
+		int sumSquares = 0;
 		int sum = 0;
-		for (i = 1; i < n + 1; i++)
-		{
-			sum += i * i;
-		}
-		return sum;	
-	}
-	
-	public static int squareOfSum(int n)
-	{
-		int i;
-		int sum = 0;
-		for (i = 1; i < n + 1; i++)
-		{
+		for (int i = 0; i < n + 1; i++) {
+			sumSquares += i * i;
 			sum += i;
 		}
-		return sum * sum;
-	}
-	
-	public static void main(String[] arg)
-	{
-		int solution = squareOfSum(100) - sumOfSquares(100);
-		System.out.println("The solution is " + solution);
+		int squareSum = sum * sum;
+		System.out.println("The solution is " + (squareSum - sumSquares));
 	}
 }

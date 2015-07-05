@@ -1,6 +1,6 @@
 import java.util.*;
 /*
- * Problem 80
+ * Problem 80. Runtime: ~65s on a 1.4 GHz Intel Core i5
  */
 
 public class Problem80 {
@@ -106,7 +106,7 @@ public class Problem80 {
 		int intermedFracDen = T[1] - T[2] * T[2];
 		int intermedFracWholePart = (int)(T[0] * (Math.sqrt(T[1]) - T[2]) / intermedFracDen);
 		values.add(intermedFracWholePart);
-		result[0] = intermedFracDen / T[0]; //System.out.println(intermedFracWholePart);
+		result[0] = intermedFracDen / T[0]; 
 		result[2] = (-1) * T[2] - intermedFracWholePart * result[0];
 		return result;
 	}

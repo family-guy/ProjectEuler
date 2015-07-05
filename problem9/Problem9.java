@@ -13,6 +13,7 @@ public class Problem9
 	
 	public static void main(String[] arg)
 	{
+		
 		int i = 1; int j = 2; int k = 3;
 		while (i < 998)
 		{
