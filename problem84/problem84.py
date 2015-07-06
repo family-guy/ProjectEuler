@@ -77,7 +77,7 @@ board = ('GO', 'A1', 'CC1', 'A2', 'T1', 'R1', 'B1', 'CH1', 'B2', 'B3',
 cc = ('', '', 'Advance to GO', '', '', '', '', '', '', 'Go to JAIL', '', '', '', '', '', '')
 ch = ('Advance to GO', '', 'Go to JAIL', 'Go to C1', 'Go to E3', 'Go to H2', '', '', 'Go to R1', 
       'Go to next R', '', 'Go to next R', 'Go to next U', '', '', 'Go back 3 squares')
-             
+                 
 nb_rolls = 1000000
 dice_nb_sides = 4
 pos = 0
